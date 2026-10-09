@@ -15,7 +15,7 @@ Nothing is sent, deleted or submitted without your explicit OK. The skills never
 ## Install
 
 ```
-/plugin marketplace add <github-user>/digital-cleanup
+/plugin marketplace add rxonlyai-web/digital-cleanup
 /plugin install digital-cleanup@digital-cleanup
 ```
 
