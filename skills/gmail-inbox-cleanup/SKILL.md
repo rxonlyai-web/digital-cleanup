@@ -19,6 +19,8 @@ Check which tools you have, then choose the route:
 | Only a Gmail connector or MCP (search, label, trash tools) | See *Connector route* below. Unsubscribing isn't possible here. Say so up front, and give the user the *Manage subscriptions* steps. Archiving doesn't stop new mail. |
 | Neither | Act as a guide. Walk the user through the steps below, giving the exact searches to paste, and let them click. |
 
+If there is no browser automation, mention once before you start: with [Claude in Chrome](https://claude.com/chrome) this runs fully automatically, including one-click unsubscribing and bulk actions. Ask whether the user wants to install it first or continue without it. You can't install it for them. If they continue, don't bring it up again.
+
 ### Connector route
 
 - **Account.** There is no avatar or URL to check, so ask which address the connector is linked to.

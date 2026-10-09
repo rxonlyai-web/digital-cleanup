@@ -22,6 +22,8 @@ Check which tools you have, then choose the route:
 | Only browser automation on the logged-in Gmail (e.g. Claude in Chrome) | Do everything in the Gmail web UI. Forms go through the same browser. |
 | Neither | Ask the user to list the companies, or to paste or export order mails. Research the contacts as usual. Deliver each request as a `mailto:` link with the to, subject and body pre-filled and URL-encoded, or as copy-paste blocks in an HTML or Markdown file. The user sends them; you keep the tracker. For forms, use any available browser (it doesn't need Gmail), or give the user the link. |
 
+If there is no browser automation, mention once before you start: with [Claude in Chrome](https://claude.com/chrome) this runs fully automatically, including web forms. Ask whether the user wants to install it first or continue without it. You can't install it for them. If they continue, don't bring it up again.
+
 ### Without mailbox access
 
 - If the user names the companies, skip the inventory.
