@@ -9,8 +9,10 @@ Nothing is sent, deleted or submitted without your explicit OK. The skills never
 
 ## Requirements
 
-- [Claude Code](https://claude.com/claude-code)
-- [Claude in Chrome](https://claude.com/chrome), logged in to the Gmail account you want to clean up
+- [Claude Code](https://claude.com/claude-code) (or another client that supports skills)
+- **Recommended:** [Claude in Chrome](https://claude.com/chrome), logged in to the Gmail account you want to clean up
+- **Alternative:** a Gmail connector. GDPR requests work fully with it. Inbox cleanup works, but slower and without one-click unsubscribing.
+- **Neither?** The skills still help. Claude finds the privacy contacts and prepares every request as a ready-to-send `mailto:` link, and for inbox cleanup it guides you step by step.
 
 ## Install
 

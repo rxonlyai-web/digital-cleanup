@@ -9,6 +9,16 @@ description: Use when a user wants to unsubscribe from newsletters, reach inbox 
 
 Bulk actions in Gmail are cheap to run and expensive to get wrong: one misclick or one over-broad query moves thousands of conversations. **Default to archive, prove every destructive click, and verify by re-searching.**
 
+## Pick the route
+
+Check which tools you have, then choose the route:
+
+| Available | Route |
+|---|---|
+| Browser automation on the user's logged-in Gmail (e.g. Claude in Chrome) | The full flow below. |
+| Only a Gmail connector or MCP (search, label, trash tools) | Archive by removing the `INBOX` label, and trash per thread with the same searches and exclusions. This is slow for big mailboxes, so work in batches and report progress. Unsubscribing isn't possible. Give the user the *Manage subscriptions* steps to do themselves. |
+| Neither | Act as a guide. Walk the user through the steps below, giving the exact searches to paste, and let them click. |
+
 ## Before anything
 
 1. Confirm the right account: the avatar and the `/u/N/` index in the URL. Users often have several Gmail accounts logged in.

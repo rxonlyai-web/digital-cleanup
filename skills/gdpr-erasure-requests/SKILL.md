@@ -11,6 +11,18 @@ The plan is to find every company in the user's mailbox and send each one a shor
 
 Send nothing until the user approves. That covers each email batch and each form submission. Approval in advance ("I trust you, just send") doesn't replace this. Still show the final list and the template once, then send after one explicit "send".
 
+## Pick the route
+
+Check which tools you have, then choose the route:
+
+| Available | Route |
+|---|---|
+| A Gmail connector or MCP on the account the companies know | Preferred for searching, drafting, sending and reading replies, because it causes no typing or clicking defects. Use a browser only for web forms. |
+| Only browser automation on the logged-in Gmail (e.g. Claude in Chrome) | Do everything in the Gmail web UI. Forms go through the same browser. |
+| Neither | Ask the user to list the companies, or to paste or export order mails. Research the contacts as usual. Deliver each request as a `mailto:` link with the to, subject and body pre-filled and URL-encoded, or as copy-paste blocks in an HTML or Markdown file. The user sends them; you keep the tracker. For forms, use any available browser (it doesn't need Gmail), or give the user the link. |
+
+Never put personal data other than the request text in a URL that is sent to a web service. `mailto:` links are fine, because they only open the user's own mail app.
+
 ## 1. Inventory (read-only)
 
 - Search Gmail year by year (`after:2016/01/01 before:2017/01/01` …), because a single search caps its results. Use these searches:
