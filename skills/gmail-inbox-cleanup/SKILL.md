@@ -16,13 +16,27 @@ Check which tools you have, then choose the route:
 | Available | Route |
 |---|---|
 | Browser automation on the user's logged-in Gmail (e.g. Claude in Chrome) | The full flow below. |
-| Only a Gmail connector or MCP (search, label, trash tools) | Archive by removing the `INBOX` label, and trash per thread with the same searches and exclusions. This is slow for big mailboxes, so work in batches and report progress. Unsubscribing isn't possible. Give the user the *Manage subscriptions* steps to do themselves. |
+| Only a Gmail connector or MCP (search, label, trash tools) | See *Connector route* below. Unsubscribing isn't possible here. Say so up front, and give the user the *Manage subscriptions* steps. Archiving doesn't stop new mail. |
 | Neither | Act as a guide. Walk the user through the steps below, giving the exact searches to paste, and let them click. |
+
+### Connector route
+
+- **Account.** There is no avatar or URL to check, so ask which address the connector is linked to.
+- **Same searches.** Gmail connectors accept the same search syntax.
+- **Archive** = remove the `INBOX` label. **Mark read** = remove `UNREAD`, if the connector allows it; otherwise say it was skipped.
+- **Restore from Trash** = untrash, then re-add `INBOX`.
+- **Batching.** Work in pages of about 50 threads. After each page, run the search again from the start: results shift as threads leave the inbox, so old page tokens go stale. Give a progress update every few pages.
+- **Big jobs.** For more than about 2,000 threads, estimate the number of calls first. Offer the guide route as a faster alternative: the web UI does it in one bulk action.
+- **Counts** are exact only if you paged to the end. Otherwise call them approximate.
+
+### Guide route
+
+Give the steps below as numbered instructions, with each search in a code block. Tell the user to read each button's tooltip before clicking. Ask them to report the counts before and after, so you can sanity-check.
 
 ## Before anything
 
 1. Confirm the right account: the avatar and the `/u/N/` index in the URL. Users often have several Gmail accounts logged in.
-2. Ask what "gone" means. **Archive + mark read** is the default. Use **Trash** only when the user explicitly says delete. Never empty Trash or delete permanently.
+2. Ask what "gone" means, unless the user explicitly said "delete" or "trash". In that case, still mention once that it acts per conversation and is recoverable for 30 days. **Archive + mark read** is the default. Use **Trash** only when the user explicitly says delete. Never empty Trash or delete permanently.
 3. Record the counts per search before you act, and show them to the user.
 
 ## Order of work

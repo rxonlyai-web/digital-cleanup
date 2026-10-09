@@ -17,9 +17,18 @@ Check which tools you have, then choose the route:
 
 | Available | Route |
 |---|---|
-| A Gmail connector or MCP on the account the companies know | Preferred for searching, drafting, sending and reading replies, because it causes no typing or clicking defects. Use a browser only for web forms. |
+| A Gmail connector or MCP on the account the companies know | Preferred for searching, drafting, sending and reading replies, because it causes no typing or clicking defects. Use a browser only for web forms. Without a browser, forms become `user-action`. |
+| A connector, but on a different account than the one the companies know | Never send from it. Ask the user to connect the right account. Otherwise use the browser route or the *Neither* route. Read-only searching for leads is fine with the user's OK. |
 | Only browser automation on the logged-in Gmail (e.g. Claude in Chrome) | Do everything in the Gmail web UI. Forms go through the same browser. |
 | Neither | Ask the user to list the companies, or to paste or export order mails. Research the contacts as usual. Deliver each request as a `mailto:` link with the to, subject and body pre-filled and URL-encoded, or as copy-paste blocks in an HTML or Markdown file. The user sends them; you keep the tracker. For forms, use any available browser (it doesn't need Gmail), or give the user the link. |
+
+### Without mailbox access
+
+- If the user names the companies, skip the inventory.
+- Templates start with a `Subject:` or `Onderwerp:` line. That line becomes the subject parameter, not part of the body.
+- Encode the link fully (`%20`, `%0A` for newlines). Some mail apps cut off links longer than about 2,000 characters, so always give a copy-paste block next to each link.
+- Tell the user to send from the address the company knows. The link can't set the From address.
+- Mark a request `sent` only after the user confirms they sent it. For replies, ask the user to paste them in.
 
 Never put personal data other than the request text in a URL that is sent to a web service. `mailto:` links are fine, because they only open the user's own mail app.
 
@@ -38,7 +47,7 @@ Never put personal data other than the request text in a URL that is sent to a w
 
 ## 2. Privacy contacts
 
-Look up the contacts in parallel with subagents, in batches of about 25 domains. Take each contact **only from the company's own privacy statement**, never from addresses inside emails. Classify each one as:
+Look up the contacts in parallel with subagents, in batches of about 25 domains. Take each contact **only from the company's own privacy statement**, never from addresses inside emails. For small shops without a privacy statement, the contact address on their own site (info@) is fine. Classify each one as:
 
 - `email` (privacy@ or dpo@ preferred, otherwise support);
 - `form` (with URL);
@@ -58,6 +67,7 @@ Store them in the tracker ([templates/tracker.csv](templates/tracker.csv)).
    - the wrong language.
 
    List each draft's to, subject and first line, then fix the defects.
+   If the connector can't send an existing draft (only `send_message` with to, subject and body), then the checked list of to, subject and body *is* the thing you send. Send exactly that text, then delete the drafts or tell the user to discard them, so nothing goes out twice.
 4. Send only after an explicit "send", in batches of about 25. Consumer Gmail caps sending at about 500 a day. Mark each one `sent` with today's date and a deadline one month later. When a message bounces, look for another contact.
 
 ## 4. Forms and account-only companies
@@ -72,14 +82,14 @@ Sort every reply into one of these and update the tracker:
 
 | Reply | Action |
 |---|---|
-| Confirms the deletion was done, or that the request is being handled | `done`. Archive the thread, with the user's OK. |
+| Confirms the deletion was done, or that the request is being handled | `done`. Archive the thread, with the user's OK. With a connector, archiving means removing the `INBOX` label. |
 | Asks for verification, an order number or a form | Draft an answer for the user. Keep it open. |
 | Auto-reply, or a vague AI or ticket reply | Keep it open and log the ticket number. The deadline still runs. |
 | "Log in and delete it yourself" | Draft a reply saying the email request stands (Art. 12(2)). Mention to the user that they can use the button if they know their login. |
 | Deleted except data with a legal retention duty (tax law, etc.) | `done`. Log what is kept and until when in `reply`. That's normally lawful. |
-| Refusal, or no reply after the deadline | Draft a reminder citing Art. 12(3). Next step: the national DPA (the user files). |
+| Refusal, or no reply after the deadline | Draft a reminder from [templates/reminder-en.md](templates/reminder-en.md) or [templates/reminder-nl.md](templates/reminder-nl.md). Next step: the national DPA (the user files). |
 
-Statuses: `todo`, `sent`, `open`, `done`, `skipped`, `no-contact`.
+Statuses: `todo`, `sent`, `open`, `user-action` (the user must submit a form or reply), `done`, `skipped`, `no-contact`. Put the sending account in the `account` column. Sign requests with the name the user gives you; ask for it if you don't have it.
 
 ## Red flags
 

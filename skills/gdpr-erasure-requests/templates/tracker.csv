@@ -1,2 +1,2 @@
-company,domain,method,address_or_url,status,sent_on,deadline,reply
-Example Shop,example.com,email,privacy@example.com,sent,2026-01-15,2026-02-15,
+company,domain,account,method,address_or_url,status,sent_on,deadline,reply
+Example Shop,example.com,me@example.com,email,privacy@example.com,sent,2026-01-15,2026-02-15,
