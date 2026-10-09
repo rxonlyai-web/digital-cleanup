@@ -1,5 +1,5 @@
 {
-  "name": "digital-cleanup",
+  "name": "mail-doctor",
   "description": "Clean up your Gmail (unsubscribe, inbox zero) and send GDPR Art. 17 erasure requests to every company that has your data, with Claude in Chrome.",
   "version": "0.1.0",
   "author": { "name": "Joris Bruyning" },

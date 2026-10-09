@@ -1,6 +1,6 @@
-# digital-cleanup
+# Mail Doctor
 
-Two Claude Code skills for a digital spring clean:
+Two Claude Code skills that cure a sick mailbox:
 
 - **gmail-inbox-cleanup**: unsubscribes from newsletters via Gmail's *Manage subscriptions*, clears Promotions, Social, Updates, Forums and Purchases, and archives old mail until you reach inbox zero.
 - **gdpr-erasure-requests**: finds every webshop and service in years of email, looks up their privacy contact, and drafts GDPR Art. 17 erasure requests (English and Dutch templates). It sends them only after you approve, then tracks the replies against the one-month deadline.
@@ -17,8 +17,8 @@ Nothing is sent, deleted or submitted without your explicit OK. The skills never
 ## Install
 
 ```
-/plugin marketplace add rxonlyai-web/digital-cleanup
-/plugin install digital-cleanup@digital-cleanup
+/plugin marketplace add rxonlyai-web/mail-doctor
+/plugin install mail-doctor@mail-doctor
 ```
 
 ## Use
