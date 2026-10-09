@@ -16,10 +16,30 @@ Nothing is sent, deleted or submitted without your explicit OK. The skills never
 
 ## Install
 
+### Claude Code
+
 ```
 /plugin marketplace add rxonlyai-web/mail-doctor
 /plugin install mail-doctor@mail-doctor
 ```
+
+### Cowork (Claude desktop app)
+
+1. In the sidebar, open **Customize → Plugins**.
+2. Click **Add marketplace** and enter `rxonlyai-web/mail-doctor`.
+3. Find **mail-doctor** and click **Install**.
+
+On Team or Enterprise plans, your admin may restrict which plugins you can install.
+
+### claude.ai (browser)
+
+claude.ai takes skills one at a time, as ZIP files. You need a Pro, Max, Team or Enterprise plan, with code execution turned on.
+
+1. Download the skills you want:
+   - [gmail-inbox-cleanup.zip](https://github.com/rxonlyai-web/mail-doctor/releases/latest/download/gmail-inbox-cleanup.zip)
+   - [gdpr-erasure-requests.zip](https://github.com/rxonlyai-web/mail-doctor/releases/latest/download/gdpr-erasure-requests.zip)
+2. Go to **Settings → Capabilities → Skills**, click **Upload skill**, and choose the ZIP file.
+3. Make sure each skill is switched on.
 
 ## Use
 
