@@ -49,15 +49,6 @@ Just ask, for example:
 - "Find every shop I ordered from and send them a GDPR deletion request"
 - "Go through the replies to my GDPR requests"
 
-## Real-world result
-
-A first run, on a personal Gmail with ten years of history:
-
-- 83 newsletters unsubscribed;
-- inbox zero;
-- about 110 erasure requests sent or submitted in one afternoon;
-- 13 companies confirmed the deletion the same day.
-
 ## Disclaimer
 
 This is not legal advice. Erasure requests may lose you warranties, loyalty points or access to digital purchases. Check the list before you send.
